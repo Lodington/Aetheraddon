@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GSG",
+    "GWG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "aetheraddon:griptium"
+    },
+    "S": {
+      "item": "aetheraddon:spuddington"
+    },
+    "W": {
+      "item": "minecraft:ender_chest"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:spud_wallet",
+    "count": 1
+  }
+}

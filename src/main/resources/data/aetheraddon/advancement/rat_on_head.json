@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud"
+    },
+    "title": "Ratatouille",
+    "description": "Put a tamed Spud Rat on your head",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:best_friends_forever",
+  "criteria": {
+    "rat_riding": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "aetheraddon:item/crushed_toe_jam"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:chudington_ore"
+    },
+    "title": "You've Been Chudded",
+    "description": "Mine Chudington Ore with your bare fist. Why?",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "mine_bare_fist": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

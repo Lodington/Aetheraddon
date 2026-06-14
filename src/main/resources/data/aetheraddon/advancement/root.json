@@ -1,0 +1,17 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:raw_spud"
+    },
+    "title": "Aether Addon",
+    "description": "The Spud Journey Begins",
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

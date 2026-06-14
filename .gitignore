@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# NeoForge/Minecraft
+run/
+runs/
+src/generated/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+repo/

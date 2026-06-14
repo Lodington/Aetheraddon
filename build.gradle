@@ -1,0 +1,96 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.42-beta'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    mavenLocal()
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        url = "https://maven.squiddev.cc"
+        content {
+            includeGroup("cc.tweaked")
+        }
+    }
+}
+
+dependencies {
+    // Pull Aether from Modrinth maven
+    implementation "maven.modrinth:aether:1.21.1-1.5.1-neoforge"
+    // CC:Tweaked compile-only for peripheral support
+    compileOnly "cc.tweaked:cc-tweaked-1.21.1-common-api:1.115.1"
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version   : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version         : neo_version,
+            neo_version_range   : neo_version_range,
+            loader_version_range: loader_version_range,
+            mod_id              : mod_id,
+            mod_name            : mod_name,
+            mod_license         : mod_license,
+            mod_version         : mod_version,
+            mod_authors         : mod_authors,
+            mod_description     : mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/repo"
+        }
+    }
+}

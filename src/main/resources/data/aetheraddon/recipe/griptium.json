@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "type": "ars_nouveau:enchanting_apparatus",
+  "keepNbtOfReagent": false,
+  "pedestalItems": [
+    {
+      "item": "aetheraddon:spudding"
+    },
+    {
+      "item": "aetheraddon:spudding"
+    },
+    {
+      "item": "aetheraddon:spudding"
+    },
+    {
+      "item": "aetheraddon:spudding"
+    }
+  ],
+  "reagent": {
+    "item": "aetheraddon:grip_plate"
+  },
+  "result": {
+    "count": 1,
+    "id": "aetheraddon:griptium"
+  },
+  "sourceCost": 1000
+}

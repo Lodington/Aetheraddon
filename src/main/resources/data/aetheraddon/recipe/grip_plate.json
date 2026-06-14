@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "type": "neoforge:single",
+      "fluid": "aetheraddon:molten_grip",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "id": "aetheraddon:grip_plate"
+    }
+  ],
+  "heat_requirement": "superheated"
+}

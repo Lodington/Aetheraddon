@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GSG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "aetheraddon:griptium"
+    },
+    "S": {
+      "item": "aetheraddon:spuddington_block"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:spud_vault",
+    "count": 1
+  }
+}

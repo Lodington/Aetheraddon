@@ -1,0 +1,26 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "aetheraddon:chudington_ore"
+    }
+  ],
+  "results": [
+    {
+      "id": "aetheraddon:raw_spud",
+      "count": 1
+    },
+    {
+      "id": "aetheraddon:raw_spud",
+      "count": 1,
+      "chance": 0.5
+    }
+  ],
+  "processing_time": 200
+}

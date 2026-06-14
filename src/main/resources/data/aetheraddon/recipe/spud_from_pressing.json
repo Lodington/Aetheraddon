@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "aetheraddon:raw_spud"
+    }
+  ],
+  "results": [
+    {
+      "id": "aetheraddon:spud"
+    }
+  ]
+}

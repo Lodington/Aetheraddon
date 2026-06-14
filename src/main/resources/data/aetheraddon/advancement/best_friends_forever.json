@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud"
+    },
+    "title": "Best Friends Forever",
+    "description": "Tame a Spud Rat by feeding it a Spud",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "tame_rat": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

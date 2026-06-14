@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington_block"
+    },
+    "title": "One Small Step for Spud",
+    "description": "Fall from a height while wearing Spuddington Block boots",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:spud_on_my_grippers",
+  "criteria": {
+    "fall_with_boots": {
+      "trigger": "minecraft:fall_from_height",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "feet": {
+                  "items": "aetheraddon:spuddington_block"
+                }
+              }
+            }
+          }
+        ],
+        "distance": {
+          "y": {
+            "min": 10.0
+          }
+        }
+      }
+    }
+  }
+}

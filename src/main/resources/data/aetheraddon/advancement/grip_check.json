@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:griptium"
+    },
+    "title": "Grip Check",
+    "description": "Smelt Toe Jam into Griptium",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:thats_nasty",
+  "criteria": {
+    "get_griptium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:griptium"
+          }
+        ]
+      }
+    }
+  }
+}

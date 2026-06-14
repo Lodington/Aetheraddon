@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington_block"
+    },
+    "title": "I'm Spudding It",
+    "description": "Place a Spuddington Block in the world",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:spud_lord",
+  "criteria": {
+    "place_spuddington_block": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:block_state_property",
+            "block": "aetheraddon:spuddington_block"
+          }
+        ]
+      }
+    }
+  }
+}

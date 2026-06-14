@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "type": "ars_nouveau:enchanting_apparatus",
+  "keepNbtOfReagent": false,
+  "pedestalItems": [
+    {
+      "item": "aetheraddon:spudding"
+    },
+    {
+      "item": "aetheraddon:spudding"
+    },
+    {
+      "item": "aetheraddon:griptium"
+    },
+    {
+      "item": "aetheraddon:griptium"
+    },
+    {
+      "item": "aetheraddon:toe_jam"
+    },
+    {
+      "item": "aetheraddon:toe_jam"
+    }
+  ],
+  "reagent": {
+    "item": "aetheraddon:spuddington"
+  },
+  "result": {
+    "count": 1,
+    "id": "aetheraddon:spud_familiar"
+  },
+  "sourceCost": 2000
+}

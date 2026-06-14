@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "aetheraddon:spuddington_block"
+    }
+  ],
+  "result": {
+    "id": "aetheraddon:spuddington",
+    "count": 9
+  }
+}

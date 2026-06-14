@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:raw_spud"
+    },
+    "title": "It's Chudding Time",
+    "description": "Mine Chudington Ore and obtain Raw Spud",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:root",
+  "criteria": {
+    "get_raw_spud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:raw_spud"
+          }
+        ]
+      }
+    }
+  }
+}

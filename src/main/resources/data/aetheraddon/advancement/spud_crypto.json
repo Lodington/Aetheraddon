@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud_wallet"
+    },
+    "title": "Spud Crypto",
+    "description": "Craft a Spud Wallet. Your portfolio is looking starchy.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:no_grip_no_trip",
+  "criteria": {
+    "get_wallet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spud_wallet"
+          }
+        ]
+      }
+    }
+  }
+}

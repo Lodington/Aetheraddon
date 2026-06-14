@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington"
+    },
+    "title": "Mr. Potato Head",
+    "description": "Rename a Spuddington on an anvil",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:full_spud",
+  "criteria": {
+    "rename_spuddington": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spuddington",
+            "predicates": {
+              "minecraft:custom_name": {}
+            }
+          }
+        ]
+      }
+    }
+  }
+}

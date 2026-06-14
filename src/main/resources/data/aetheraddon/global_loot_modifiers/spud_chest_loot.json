@@ -1,0 +1,9 @@
+{
+  "type": "aetheraddon:spud_loot",
+  "conditions": [
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 1.0
+    }
+  ]
+}

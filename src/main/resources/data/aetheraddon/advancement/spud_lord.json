@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington_block"
+    },
+    "title": "Spud Lord",
+    "description": "Craft a Spuddington Block",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "aetheraddon:full_spud",
+  "criteria": {
+    "get_spuddington_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spuddington_block"
+          }
+        ]
+      }
+    }
+  }
+}

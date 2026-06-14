@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "aetheraddon:raw_spud"
+  },
+  "result": {
+    "id": "aetheraddon:spud",
+    "count": 1
+  },
+  "experience": 0.7,
+  "cookingtime": 200
+}

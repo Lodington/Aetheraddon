@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:raw_spud"
+    },
+    "title": "Spud-nik",
+    "description": "Fall more than 30 blocks while holding a Raw Spud",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "fall_with_spud": {
+      "trigger": "minecraft:fall_from_height",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "mainhand": {
+                  "items": "aetheraddon:raw_spud"
+                }
+              }
+            }
+          }
+        ],
+        "start_position": {
+          "position": {
+            "y": {
+              "min": 30.0
+            }
+          }
+        },
+        "distance": {
+          "y": {
+            "min": 30.0
+          }
+        }
+      }
+    }
+  }
+}

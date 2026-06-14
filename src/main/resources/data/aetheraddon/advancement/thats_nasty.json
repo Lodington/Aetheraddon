@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:toe_jam"
+    },
+    "title": "That's Nasty",
+    "description": "Obtain Toe Jam from a Spud Rat",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "get_toe_jam": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:toe_jam"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud_familiar"
+    },
+    "title": "Arcane Rodent",
+    "description": "Craft a Spud Familiar. Your mana will thank you.",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:getting_spuddy",
+  "criteria": {
+    "get_familiar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spud_familiar"
+          }
+        ]
+      }
+    }
+  }
+}

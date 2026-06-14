@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington"
+    },
+    "title": "Full Spud",
+    "description": "Craft a Spuddington",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:getting_spuddy",
+  "criteria": {
+    "get_spuddington": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spuddington"
+          }
+        ]
+      }
+    }
+  }
+}

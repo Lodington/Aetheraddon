@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud"
+    },
+    "title": "Hot Potato",
+    "description": "Be on fire while holding a Spud",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:baked_potato",
+  "criteria": {
+    "on_fire_with_spud": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "flags": {
+                "is_on_fire": true
+              },
+              "equipment": {
+                "mainhand": {
+                  "items": "aetheraddon:spud"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

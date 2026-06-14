@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spudding"
+    },
+    "title": "Getting Spuddy",
+    "description": "Obtain Spudding from the Enchanting Apparatus",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "get_spudding": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spudding"
+          }
+        ]
+      }
+    }
+  }
+}

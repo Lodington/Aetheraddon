@@ -1,0 +1,30 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "aetheraddon:crushed_toe_jam"
+    },
+    {
+      "item": "aetheraddon:crushed_toe_jam"
+    },
+    {
+      "type": "neoforge:single",
+      "fluid": "minecraft:lava",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "id": "aetheraddon:molten_grip"
+    }
+  ],
+  "processing_time": 300,
+  "heat_requirement": "superheated"
+}

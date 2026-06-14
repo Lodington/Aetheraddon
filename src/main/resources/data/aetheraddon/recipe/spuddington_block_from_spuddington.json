@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "aetheraddon:spuddington"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:spuddington_block",
+    "count": 1
+  }
+}

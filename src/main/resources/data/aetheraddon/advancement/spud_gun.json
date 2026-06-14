@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:raw_spud"
+    },
+    "title": "Spud Gun",
+    "description": "Hit an entity by throwing a Raw Spud at them",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "throw_spud": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "aetheraddon:thrown_spud"
+            }
+          }
+        }
+      }
+    }
+  }
+}

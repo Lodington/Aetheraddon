@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spud"
+    },
+    "title": "Baked Potato?",
+    "description": "Smelt Raw Spud into a Spud",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:its_chudding_time",
+  "criteria": {
+    "get_spud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:spud"
+          }
+        ]
+      }
+    }
+  }
+}

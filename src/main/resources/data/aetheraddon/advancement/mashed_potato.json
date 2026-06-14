@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:spuddington_block"
+    },
+    "title": "Mashed Potato",
+    "description": "Die while wearing Spuddington Block boots",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "aetheraddon:spud_on_my_grippers",
+  "criteria": {
+    "die_with_boots": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "feet": {
+                  "items": "aetheraddon:spuddington_block"
+                }
+              }
+            }
+          }
+        ],
+        "damage": {
+          "dealt": {
+            "min": 1.0
+          },
+          "taken": {
+            "min": 1.0
+          }
+        }
+      }
+    }
+  }
+}

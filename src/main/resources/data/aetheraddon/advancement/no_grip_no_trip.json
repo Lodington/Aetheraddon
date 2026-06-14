@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "id": "aetheraddon:griptium_pickaxe"
+    },
+    "title": "No Grip, No Trip",
+    "description": "Craft a Griptium Pickaxe",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "aetheraddon:grip_check",
+  "criteria": {
+    "get_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "aetheraddon:griptium_pickaxe"
+          }
+        ]
+      }
+    }
+  }
+}
