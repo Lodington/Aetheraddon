@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GGG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "aetheraddon:griptium"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:griptium_block",
+    "count": 1
+  }
+}

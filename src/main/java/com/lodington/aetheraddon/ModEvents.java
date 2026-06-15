@@ -21,5 +21,10 @@ public class ModEvents {
                 ModBlockEntities.SPUD_VAULT.get(),
                 (blockEntity, direction) -> new SpudVaultItemHandler(blockEntity)
         );
+        event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.SPUD_MINER.get(),
+                (blockEntity, direction) -> blockEntity.getEnergyStorage()
+        );
     }
 }

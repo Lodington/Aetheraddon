@@ -1,5 +1,6 @@
 package com.lodington.aetheraddon;
 
+import com.lodington.aetheraddon.miner.SpudMinerMenu;
 import com.lodington.aetheraddon.wallet.SpudWalletMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -14,4 +15,7 @@ public class ModMenuTypes {
 
     public static final Supplier<MenuType<SpudWalletMenu>> SPUD_WALLET_MENU = MENUS.register("spud_wallet",
             () -> IMenuTypeExtension.create(SpudWalletMenu::new));
+
+    public static final Supplier<MenuType<SpudMinerMenu>> SPUD_MINER_MENU = MENUS.register("spud_miner",
+            () -> IMenuTypeExtension.create(SpudMinerMenu::new));
 }

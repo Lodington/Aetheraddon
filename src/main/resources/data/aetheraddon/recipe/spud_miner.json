@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GIG",
+    "IRI",
+    "GIG"
+  ],
+  "key": {
+    "G": {
+      "item": "aetheraddon:griptium_block"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:spud_miner",
+    "count": 1
+  }
+}

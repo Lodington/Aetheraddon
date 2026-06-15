@@ -9,24 +9,27 @@
   "keepNbtOfReagent": false,
   "pedestalItems": [
     {
-      "item": "aetheraddon:spud"
+      "item": "aetheraddon:raw_spud"
     },
     {
-      "item": "aetheraddon:spud"
+      "item": "aetheraddon:raw_spud"
     },
     {
-      "item": "aetheraddon:spud"
+      "item": "aetheraddon:raw_spud"
     },
     {
-      "item": "aetheraddon:spud"
+      "item": "aetheraddon:raw_spud"
+    },
+    {
+      "tag": "c:gems/source"
     }
   ],
   "reagent": {
-    "item": "aetheraddon:spud"
+    "item": "aetheraddon:raw_spud"
   },
   "result": {
     "count": 1,
-    "id": "aetheraddon:spudding"
+    "id": "aetheraddon:spuddington"
   },
-  "sourceCost": 500
+  "sourceCost": 5000
 }

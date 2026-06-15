@@ -1,5 +1,6 @@
 package com.lodington.aetheraddon;
 
+import com.lodington.aetheraddon.miner.SpudMinerScreen;
 import com.lodington.aetheraddon.wallet.SpudWalletScreen;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
@@ -20,6 +21,7 @@ public class ClientSetup {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.SPUD_WALLET_MENU.get(), SpudWalletScreen::new);
+        event.register(ModMenuTypes.SPUD_MINER_MENU.get(), SpudMinerScreen::new);
     }
 
     @SubscribeEvent

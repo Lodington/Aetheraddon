@@ -31,6 +31,9 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SPUDDINGTON_BLOCK.get());
                         output.accept(ModBlocks.CHUDINGTON_ORE.get());
                         output.accept(ModBlocks.SPUD_VAULT.get());
+                        output.accept(ModBlocks.GRIPTIUM_BLOCK.get());
+                        output.accept(ModBlocks.SPUD_MINER.get());
+                        output.accept(ModItems.SPUD_GPU.get());
                     })
                     .build());
 }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" },
+    { "item": "aetheraddon:spud" }
+  ],
+  "result": {
+    "id": "aetheraddon:spudding",
+    "count": 1
+  }
+}

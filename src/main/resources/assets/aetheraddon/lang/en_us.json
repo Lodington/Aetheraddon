@@ -5,6 +5,12 @@
   "block.aetheraddon.spuddington_block.tooltip": "9 Spuddingtons compressed into pure drip. Wearable on feet.",
   "block.aetheraddon.spud_vault": "Spud Vault",
   "block.aetheraddon.spud_vault.tooltip": "Your spuds are safe here. Access from anywhere with a Spud Wallet.",
+  "block.aetheraddon.griptium_block": "Griptium Block",
+  "block.aetheraddon.griptium_block.tooltip": "9 Griptium compressed. Used to craft GPUs.",
+  "block.aetheraddon.spud_miner": "Spud Miner",
+  "block.aetheraddon.spud_miner.tooltip": "Mines spuds passively. Needs GPUs, power, and an adjacent vault.",
+  "item.aetheraddon.spud_gpu": "Spud GPU",
+  "item.aetheraddon.spud_gpu.tooltip": "Insert into a Spud Miner to increase hash rate.",
 
   "item.aetheraddon.raw_spud": "Raw Spud",
   "item.aetheraddon.raw_spud.tooltip": "Throwable. Smeltable. Questionable.",

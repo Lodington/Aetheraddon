@@ -1,6 +1,6 @@
-# Aether Addon - The Spud Mod
+# Spud Mod
 
-A NeoForge 1.21.1 addon for The Aether mod that adds a full spud-themed progression system, a tameable pet rat, custom tools, a unique potion effect, and plenty of meme energy.
+A NeoForge 1.21.1 addon for The Aether mod that adds a full spud-themed progression system, a tameable pet rat, custom fluids, a bitcoin-style mining system, and plenty of meme energy.
 
 ## Requirements
 
@@ -8,30 +8,91 @@ A NeoForge 1.21.1 addon for The Aether mod that adds a full spud-themed progress
 - NeoForge 21.1.230+
 - The Aether (1.5.10+)
 - Optional: Create (6.0+) for crushing/pressing/mixing recipes
+- Optional: Create Power Grid (or any FE power source) for Spud Miner
 - Optional: Ars Nouveau (5.11+) for enchanting apparatus recipes and Spud Familiar
+- Optional: CC:Tweaked for Spud Vault peripheral
 
 ## Items
 
 | Item | Description |
 |------|-------------|
-| **Raw Spud** | Dropped from Chudington Ore (1-2, Fortune compatible). Throwable like a snowball, deals 2 damage. |
+| **Raw Spud** | Dropped from Chudington Ore (2-3, Fortune compatible). Throwable like a snowball, deals 2 damage. |
 | **Spud** | Smelted/blasted from Raw Spud. Edible: 3 hunger, Gripper Feet I for 10s, always edible, fast eat. Used to tame Spud Rats. |
-| **Spudding** | Crafted via Ars Nouveau Enchanting Apparatus (4 Raw Spud on pedestals + 1 reagent, 500 source). |
-| **Spuddington** | 8 Spudding (shapeless). Super food: 10 hunger, Gripper Feet III (90s), Resistance II (90s), Regen II (30s). Slow eat time. |
+| **Spudding** | Made via pressing Raw Spud, or 8 Spud shapeless craft. |
+| **Spuddington** | 8 Spudding shapeless, or via Ars Enchanting Apparatus. Super food: 10 hunger, Gripper Feet III (90s), Resistance II (90s), Regen II (30s). Slow eat time. |
 | **Toe Jam** | Dropped by wild Spud Rats (1-2). First step in the Griptium chain. |
 | **Crushed Toe Jam** | Made by crushing Toe Jam in Create Crushing Wheels. |
-| **Molten Grip Compound** | Made by superheated mixing 2 Crushed Toe Jam + 500mb Lava. |
-| **Grip Plate** | Made by pressing Molten Grip Compound in a Create Mechanical Press. |
-| **Griptium** | Made via Ars Enchanting Apparatus (Grip Plate reagent + 4 Spudding, 1000 source). |
-| **Griptium Pickaxe** | 3 Griptium + 2 sticks. Only mines Chudington Ore (super fast, 50% bonus drops). Useless on other blocks. 256 durability. |
-| **Spud Familiar** | Crafted via Enchanting Apparatus (Spuddington reagent + 2 Spudding, 2 Griptium, 2 Toe Jam, 2000 source). Passively gives Mana Boost III and Mana Regen III while in inventory. Has enchanted shimmer. |
+| **Grip Plate** | Made by superheated compacting Molten Grip Fluid. |
+| **Griptium** | Made via Ars Enchanting Apparatus (Grip Plate + 4 Spudding, 1000 source). |
+| **Griptium Pickaxe** | 3 Griptium + 2 sticks. Only mines Chudington Ore (super fast, 50% bonus). 256 durability. |
+| **Spud Familiar** | Endgame Ars item. Gives Mana Boost III + Mana Regen III while in inventory. |
+| **Spud Wallet** | Remotely accesses a linked Spud Vault from anywhere. Shift+right-click vault to link. |
+| **Spud GPU** | Install in Spud Miner to increase hash rate. Extremely expensive to craft. |
+| **Molten Grip Bucket** | Bucket of Molten Grip Fluid. Burns on contact. |
 
 ## Blocks
 
 | Block | Description |
 |-------|-------------|
-| **Chudington Ore** | Spawns in the Aether (replaces holystone). Emits light level 7. 10% chance to spawn a Spud Rat when mined. Silk Touch returns the block. |
-| **Spuddington Block** | 9 Spuddington (shaped). Drops itself. Wearable on feet slot (right-click to equip). |
+| **Chudington Ore** | Spawns in the Aether (replaces holystone). Emits light level 7. 10% chance to spawn a Spud Rat when mined. |
+| **Spuddington Block** | 9 Spuddington. Drops itself. Wearable on feet slot. |
+| **Griptium Block** | 9 Griptium storage block. Used to craft GPUs and the Spud Miner. |
+| **Spud Vault** | Stores unlimited Spud/Spudding/Spuddington. Right-click to open. Supports hoppers, pipes, and CC:Tweaked peripherals. Directional. |
+| **Spud Miner** | Bitcoin-style passive spud generator. Requires GPUs, FE power, and adjacent vault. Directional. |
+
+## Spud Miner System
+
+The Spud Miner is an endgame passive spud generator that mimics cryptocurrency mining.
+
+**Setup:**
+1. Place a Spud Vault
+2. Place a Spud Miner adjacent to the vault
+3. Connect FE power (Create Power Grid, Mekanism, Thermal, etc.)
+4. Install Spud GPUs via the GUI (up to 10)
+
+**Power consumption scales exponentially:**
+
+| GPUs | FE/t | Mining Speed |
+|------|------|-------------|
+| 1 | 100 | 1 spud / 30s |
+| 2 | 250 | 1 spud / 15s |
+| 3 | 500 | 1 spud / 10s |
+| 4 | 1,000 | 1 spud / 7.5s |
+| 5 | 2,000 | 1 spud / 6s |
+| 6 | 3,500 | 1 spud / 5s |
+| 7 | 5,500 | 1 spud / 4.3s |
+| 8 | 8,000 | 1 spud / 3.75s |
+| 9 | 11,000 | 1 spud / 3.3s |
+| 10 | 15,000 | 1 spud / 3s |
+
+**Spud Miner specs:**
+- 1,000,000 FE internal buffer
+- 10,000 FE/t max input
+- GUI shows GPU slots, energy bar, consumption, and total mined
+
+**Spud GPU recipe:** 4 Diamond Blocks + 4 Griptium Blocks + 1 Netherite Ingot (per GPU)
+
+## Spud Vault & Wallet
+
+**Spud Vault:**
+- Unlimited storage for Spud, Spudding, and Spuddington
+- Right-click with spud items to deposit directly
+- Shift-click in GUI to deposit
+- Drops all contents when broken
+- Works with hoppers and item pipes (IItemHandler)
+- CC:Tweaked peripheral with Lua API
+
+**Spud Wallet:**
+- Shift+right-click on a Spud Vault to link
+- Right-click in air to open linked vault remotely (chunk must be loaded)
+- Conversion buttons: 8 Spudding ↔ 1 Spuddington
+
+## Molten Grip Fluid
+
+A hot pink fluid produced in Create basins.
+- Burns entities on contact (lava-tagged)
+- Can be bucketed, piped, and stored in tanks
+- Produced by superheated mixing: 2 Crushed Toe Jam + 500mb Lava
 
 ## Custom Effect: Gripper Feet
 
@@ -46,66 +107,53 @@ Obtained by eating Spud (level I, 10s) or Spuddington (level III, 90s).
 
 ### Spud Rat
 
-A small mob that spawns from Chudington Ore (10% chance on mine). Rendered as a flat billboard sprite that always faces the player and glows.
+A small mob that spawns from Chudington Ore (10% chance on mine). Rendered as a billboard sprite.
 
-**Wild:**
-- Hostile, attacks players on sight
-- 8 HP, 2 attack damage, fast (0.35 speed)
-- Drops 1-2 Toe Jam on death
+**Wild:** Hostile, 8 HP, 2 damage, drops 1-2 Toe Jam.
 
-**Taming:**
-- Feed it a Spud (right-click). 1 in 3 chance to succeed.
-- Heart particles on success, smoke on fail.
-
-**Tamed:**
-- Right-click: toggle sit/follow
-- Shift+right-click: mount on your head
-- Attacks what you attack, defends you
-- Feed Spud to heal (4 HP per spud)
-- No longer drops Toe Jam on death
-
-**On your head:**
-- Invulnerable to all damage
-- Scans for Chudington Ore within 8 blocks every 2 seconds
-- Spawns green particles on nearest ore to guide you
+**Taming:** Feed Spud (1 in 3 chance). Tamed rats:
+- Follow you, fight for you, sit on command
+- Shift+right-click to ride on your head (invulnerable)
+- Sniffs out Chudington Ore within 8 blocks (green particles)
+- Feed Spud to heal (4 HP)
 
 ## Recipes
 
-### Vanilla Crafting
-- 8 Spudding → 1 Spuddington (shapeless)
-- 1 Spuddington → 8 Spudding (shapeless)
-- 9 Spuddington → 1 Spuddington Block (shaped 3x3)
-- 1 Spuddington Block → 9 Spuddington (shapeless)
-- 3 Griptium + 2 Sticks → Griptium Pickaxe (pickaxe shape)
+### Processing Flow
+```
+Chudington Ore
+├── Mining → 2-3 Raw Spud
+└── Crushing Wheels → 3-4 Raw Spud
 
-### Smelting / Blasting
-- Raw Spud → Spud (furnace 200t / blast 100t)
+Raw Spud
+├── Smelting/Blasting → Spud
+├── Pressing → Spudding
+└── Ars Enchanting (4x Raw Spud + Source Gem, 5000 source) → Spuddington
 
-### Create (requires Create mod)
-- **Crushing:** Chudington Ore → 1 Raw Spud + 50% chance 1 extra (200 ticks)
-- **Crushing:** Toe Jam → 1 Crushed Toe Jam + 25% chance 1 extra (150 ticks)
-- **Mixing (superheated):** 2 Crushed Toe Jam + 500mb Lava → Molten Grip Compound (300 ticks)
-- **Pressing:** Molten Grip Compound → Grip Plate
-- **Pressing:** Raw Spud → Spud
-- **Mixing (heated):** Raw Spud + 250mb Water → Spud (200 ticks)
-
-### Ars Nouveau (requires Ars Nouveau mod)
-- **Enchanting Apparatus:** 4 Raw Spud pedestals + 1 Raw Spud reagent → Spudding (500 source)
-- **Enchanting Apparatus:** 4 Spudding pedestals + Grip Plate reagent → Griptium (1000 source)
-- **Enchanting Apparatus:** 2 Spudding + 2 Griptium + 2 Toe Jam pedestals + Spuddington reagent → Spud Familiar (2000 source)
+Spud → 8:1 → Spudding → 8:1 → Spuddington → 9:1 → Spuddington Block
+```
 
 ### Griptium Production Chain
 ```
 Toe Jam (rat drop)
   → [Create Crushing Wheels] → Crushed Toe Jam
-    → [Create Superheated Mixer + Lava] → Molten Grip Compound
-      → [Create Mechanical Press] → Grip Plate
+    → [Create Superheated Mixer + Lava] → Molten Grip Fluid
+      → [Create Compacting, Superheated] → Grip Plate
         → [Ars Enchanting Apparatus + 4 Spudding] → Griptium
 ```
 
+### Key Recipes
+- Griptium Block: 9 Griptium (shaped 3x3)
+- Griptium Pickaxe: 3 Griptium + 2 Sticks
+- Spud GPU: 4 Diamond Blocks + 4 Griptium Blocks + 1 Netherite Ingot
+- Spud Miner: 4 Griptium Blocks + 4 Iron Blocks + 1 Redstone Block
+- Spud Wallet: 7 Griptium + 1 Spuddington + 1 Ender Chest
+- Spud Vault: 8 Griptium + 1 Spuddington Block
+- Spud Familiar: Ars Enchanting (2 Spudding + 2 Griptium + 2 Toe Jam + Spuddington reagent, 2000 source)
+
 ## Loot Table Injection
 
-All items can appear randomly in any chest (including Lootr chests):
+All items can appear randomly in chests (including Lootr):
 
 | Item | Chance | Amount |
 |------|--------|--------|
@@ -118,65 +166,42 @@ All items can appear randomly in any chest (including Lootr chests):
 | Griptium Pickaxe | 0.5% | 1 |
 | Spud Familiar | 0.2% | 1 |
 
+## CC:Tweaked Integration
+
+Place a computer next to a Spud Vault:
+```lua
+local vault = peripheral.wrap("left")
+print(vault.getSpud())
+print(vault.getSpudding())
+print(vault.getSpuddington())
+print(vault.getTotal())
+
+-- Listen for changes
+while true do
+  local event, type, old, new = os.pullEvent("spud_vault_changed")
+  print(type .. ": " .. old .. " -> " .. new)
+end
+```
+
 ## Advancements
 
-### Main Progression
-```
-Aether Addon (root - auto unlock)
-├── It's Chudding Time (get Raw Spud)
-│   ├── Baked Potato? (get Spud)
-│   │   ├── Hot Potato (be on fire holding Spud) [hidden]
-│   │   └── Couch Potato (hold Spud in mainhand) [hidden]
-│   ├── Getting Spuddy (get Spudding)
-│   │   ├── Full Spud (get Spuddington)
-│   │   │   ├── Spud Lord (get Spuddington Block) [challenge]
-│   │   │   │   ├── I'm Spudding It (place Spuddington Block)
-│   │   │   │   │   └── I Got Spud On My Grippers (wear as boots) [hidden]
-│   │   │   │   │       ├── One Small Step for Spud (fall 10+ blocks in boots) [hidden]
-│   │   │   │   │       └── Mashed Potato (take damage in boots) [hidden]
-│   │   │   └── Mr. Potato Head (rename Spuddington on anvil) [hidden]
-│   │   └── Arcane Rodent (get Spud Familiar) [hidden, challenge]
-│   ├── Spud Gun (hit entity with thrown Raw Spud) [hidden]
-│   ├── Spud-nik (fall 30+ blocks holding Raw Spud) [hidden]
-│   ├── You've Been Chudded (mine ore bare-fisted) [hidden, challenge]
-│   ├── Best Friends Forever (tame a Spud Rat) [hidden]
-│   │   └── Ratatouille (put rat on head) [hidden]
-│   └── That's Nasty (get Toe Jam) [hidden]
-│       └── Grip Check (get Griptium)
-│           └── No Grip, No Trip (craft Griptium Pickaxe)
-└── The Spud Rises (carry all 4 spud items + enter Aether) [hidden, challenge]
-```
+20+ advancements including hidden easter eggs:
+- It's Chudding Time, Baked Potato?, Getting Spuddy, Full Spud, Spud Lord
+- I'm Spudding It, I Got Spud On My Grippers, One Small Step for Spud
+- Hot Potato, Couch Potato, Mr. Potato Head, Mashed Potato
+- Spud Gun, Spud-nik, You've Been Chudded, The Spud Rises
+- Best Friends Forever, Ratatouille, That's Nasty, Grip Check
+- No Grip, No Trip, Arcane Rodent, Spud Crypto
 
 ## Death Messages
 
-- `"Player was spudded to death"` — killed by thrown Raw Spud
-- `"Player was spudded to death by OtherPlayer"` — PvP spud kill
-- `"Player was nibbled to death by a Spud Rat"` — killed by Spud Rat
-
-## Item Tooltips
-
-All items have gray italic tooltip descriptions:
-- Raw Spud: *"Throwable. Smeltable. Questionable."*
-- Spud: *"Tastes like speed. Literally."*
-- Spuddington: *"The ultimate superfood. You can feel it in your bones."*
-- Spudding: *"Enchanted by arcane spud magic. Smells faintly of feet."*
-- Toe Jam: *"Dropped by Spud Rats. Don't ask where it comes from."*
-- Crushed Toe Jam: *"Ground down to a fine, disgusting powder."*
-- Molten Grip Compound: *"Hot. Sticky. Visceral."*
-- Grip Plate: *"Pressed flat. Ready for arcane infusion."*
-- Griptium: *"Forged through feet, fire, and forbidden magic."*
-- Griptium Pickaxe: *"Only works on Chudington Ore. Grips it real good."*
-- Spud Familiar: *"A rat spirit bound to spud magic. Boosts your mana significantly."*
-- Chudington Ore: *"It glows with spuddy energy. Watch out for rats."*
-- Spuddington Block: *"9 Spuddingtons compressed into pure drip. Wearable on feet."*
+- "Player was spudded to death" — killed by thrown Raw Spud
+- "Player was nibbled to death by a Spud Rat"
 
 ## World Generation
 
 Chudington Ore generates in Aether biomes:
-- Replaces holystone
-- Vein size: 8
-- 7 veins per chunk
-- Y level: 0-128
+- Replaces holystone, vein size 8, 7 veins/chunk, Y 0-128
 
 ## Building
 
@@ -188,13 +213,9 @@ Output jar: `build/libs/aetheraddon-1.0.0.jar`
 
 ## Textures To Replace
 
-Placeholder textures that need art:
-- `textures/item/toe_jam.png`
-- `textures/item/crushed_toe_jam.png`
-- `textures/item/molten_grip_compound.png`
-- `textures/item/grip_plate.png`
-- `textures/item/griptium.png`
-- `textures/item/griptium_pickaxe.png`
-- `textures/item/spud_familiar.png`
+- `textures/item/toe_jam.png`, `crushed_toe_jam.png`, `grip_plate.png`
+- `textures/item/griptium.png`, `griptium_pickaxe.png`, `spud_gpu.png`
+- `textures/item/spud_familiar.png`, `spud_wallet.png`, `molten_grip_bucket.png`
+- `textures/block/griptium_block.png`, `spud_miner.png`
 - `textures/entity/spud_rat.png`
 - `textures/mob_effect/gripper_feet.png` (18x18)

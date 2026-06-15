@@ -93,15 +93,15 @@ public class ChudingtonOreBlock extends Block {
                 Block.popResource(level, pos, new ItemStack(ModBlocks.CHUDINGTON_ORE.get()));
             } else if (tool.getItem() instanceof GriptiumPickaxe) {
                 // Griptium Pickaxe gives 50% more raw spud
-                int count = 1 + level.getRandom().nextInt(2);
+                int count = 2 + level.getRandom().nextInt(2);
                 // 50% chance for an extra drop
                 if (level.getRandom().nextFloat() < 0.5f) {
                     count += 1;
                 }
                 Block.popResource(level, pos, new ItemStack(ModItems.RAW_SPUD.get(), count));
             } else {
-                // Drop 1-2 raw spud
-                int count = 1 + level.getRandom().nextInt(2);
+                // Drop 2-3 raw spud
+                int count = 2 + level.getRandom().nextInt(2);
 
                 // Check fortune level and add bonus
                 int fortuneLevel = EnchantmentHelper.getItemEnchantmentLevel(

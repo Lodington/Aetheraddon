@@ -41,4 +41,5 @@ public class ModItems {
             () -> new SpudFamiliarItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> SPUD_WALLET = ITEMS.register("spud_wallet",
             () -> new com.lodington.aetheraddon.wallet.SpudWalletItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> SPUD_GPU = ITEMS.registerSimpleItem("spud_gpu", new Item.Properties().stacksTo(16));
 }

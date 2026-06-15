@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": { "model": "aetheraddon:block/spud_vault" }
+    "facing=north": { "model": "aetheraddon:block/spud_vault" },
+    "facing=south": { "model": "aetheraddon:block/spud_vault", "y": 180 },
+    "facing=west": { "model": "aetheraddon:block/spud_vault", "y": 270 },
+    "facing=east": { "model": "aetheraddon:block/spud_vault", "y": 90 }
   }
 }
