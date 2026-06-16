@@ -37,6 +37,11 @@ public class SpudWalletItem extends Item {
         BlockPos pos = context.getClickedPos();
         Player player = context.getPlayer();
 
+        // Don't intercept if clicking on a merchant
+        if (level.getBlockState(pos).getBlock() instanceof com.lodington.aetheraddon.merchant.SpudMerchantBlock) {
+            return InteractionResult.PASS;
+        }
+
         if (!level.isClientSide() && player != null && player.isShiftKeyDown()) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof SpudVaultBlockEntity) {

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GRG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass_pane"
+    },
+    "R": {
+      "item": "aetheraddon:griptium"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:miner_monitor",
+    "count": 1
+  }
+}

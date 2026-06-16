@@ -27,6 +27,11 @@ public class CCCompat {
                     ModBlockEntities.SPUD_VAULT.get(),
                     (blockEntity, direction) -> new SpudVaultPeripheral(blockEntity)
             );
+            event.registerBlockEntity(
+                    peripheralCap,
+                    ModBlockEntities.SPUD_MERCHANT.get(),
+                    (blockEntity, direction) -> new com.lodington.aetheraddon.merchant.SpudMerchantPeripheral(blockEntity)
+            );
         } catch (Exception ignored) {
             // CC:Tweaked not available or API mismatch
         }

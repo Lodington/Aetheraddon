@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GDG",
+    "DND",
+    "GDG"
+  ],
+  "key": {
+    "G": {
+      "item": "aetheraddon:griptium_block"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:cluster_controller",
+    "count": 1
+  }
+}

@@ -18,4 +18,7 @@ public class ModMenuTypes {
 
     public static final Supplier<MenuType<SpudMinerMenu>> SPUD_MINER_MENU = MENUS.register("spud_miner",
             () -> IMenuTypeExtension.create(SpudMinerMenu::new));
+
+    public static final Supplier<MenuType<com.lodington.aetheraddon.merchant.SpudMerchantMenu>> SPUD_MERCHANT_MENU = MENUS.register("spud_merchant",
+            () -> IMenuTypeExtension.create(com.lodington.aetheraddon.merchant.SpudMerchantMenu::new));
 }

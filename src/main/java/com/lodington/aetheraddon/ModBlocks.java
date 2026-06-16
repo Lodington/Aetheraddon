@@ -42,6 +42,34 @@ public class ModBlocks {
                     .sound(SoundType.COPPER)
                     .lightLevel(state -> 2)));
 
+    public static final DeferredBlock<Block> GPU_COOLER = registerBlock("gpu_cooler",
+            () -> new com.lodington.aetheraddon.miner.GpuCoolerBlock(BlockBehaviour.Properties.of()
+                    .strength(2.0f, 6.0f)
+                    .sound(SoundType.COPPER)));
+
+    public static final DeferredBlock<Block> MINER_MONITOR = registerBlock("miner_monitor",
+            () -> new com.lodington.aetheraddon.miner.MinerMonitorBlock(BlockBehaviour.Properties.of()
+                    .strength(2.0f, 6.0f)
+                    .sound(SoundType.COPPER)
+                    .lightLevel(state -> 4)));
+
+    public static final DeferredBlock<Block> SPUD_NETWORK_CABLE = registerBlock("spud_network_cable",
+            () -> new com.lodington.aetheraddon.miner.SpudNetworkCableBlock(BlockBehaviour.Properties.of()
+                    .strength(1.0f, 3.0f)
+                    .sound(SoundType.COPPER)));
+
+    public static final DeferredBlock<Block> CLUSTER_CONTROLLER = registerBlock("cluster_controller",
+            () -> new com.lodington.aetheraddon.miner.ClusterControllerBlock(BlockBehaviour.Properties.of()
+                    .strength(3.0f, 6.0f)
+                    .sound(SoundType.COPPER)
+                    .lightLevel(state -> 6)));
+
+    public static final DeferredBlock<Block> SPUD_MERCHANT = registerBlock("spud_merchant",
+            () -> new com.lodington.aetheraddon.merchant.SpudMerchantBlock(BlockBehaviour.Properties.of()
+                    .strength(3.0f, 6.0f)
+                    .sound(SoundType.WOOD)
+                    .lightLevel(state -> 3)));
+
     private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         ModItems.ITEMS.register(name, () -> new SpuddingtonBlockItem(toReturn.get(), new Item.Properties()));

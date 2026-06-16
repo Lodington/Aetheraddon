@@ -15,4 +15,7 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.SpudMinerBlockEntity>> SPUD_MINER = BLOCK_ENTITIES.register("spud_miner",
             () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.SpudMinerBlockEntity::new, ModBlocks.SPUD_MINER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity>> SPUD_MERCHANT = BLOCK_ENTITIES.register("spud_merchant",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity::new, ModBlocks.SPUD_MERCHANT.get()).build(null));
 }

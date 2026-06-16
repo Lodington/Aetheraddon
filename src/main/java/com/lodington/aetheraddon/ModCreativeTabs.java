@@ -33,6 +33,11 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SPUD_VAULT.get());
                         output.accept(ModBlocks.GRIPTIUM_BLOCK.get());
                         output.accept(ModBlocks.SPUD_MINER.get());
+                        output.accept(ModBlocks.GPU_COOLER.get());
+                        output.accept(ModBlocks.MINER_MONITOR.get());
+                        output.accept(ModBlocks.SPUD_NETWORK_CABLE.get());
+                        output.accept(ModBlocks.CLUSTER_CONTROLLER.get());
+                        output.accept(ModBlocks.SPUD_MERCHANT.get());
                         output.accept(ModItems.SPUD_GPU.get());
                     })
                     .build());

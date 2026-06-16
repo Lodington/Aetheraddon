@@ -88,7 +88,11 @@ public class SpudMinerMenu extends AbstractContainerMenu {
             data.set(0, miner.getEnergyStorage().getEnergyStored());
             data.set(1, miner.getEnergyStorage().getMaxEnergyStored());
             data.set(2, miner.getGeneratedSpud());
-            data.set(3, SpudMinerBlockEntity.getEnergyConsumption(miner.getInstalledGPUs()));
+            int baseConsumption = SpudMinerBlockEntity.getEnergyConsumption(miner.getInstalledGPUs());
+            int coolers = com.lodington.aetheraddon.miner.GpuCoolerBlock.countCoolersAdjacent(
+                    miner.getLevel(), miner.getBlockPos());
+            int actual = (int)(baseConsumption * (1.0 - coolers * 0.2));
+            data.set(3, actual);
         }
         super.broadcastChanges();
     }

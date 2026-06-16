@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aetheraddon:block/spud_merchant" },
+    "facing=south": { "model": "aetheraddon:block/spud_merchant", "y": 180 },
+    "facing=west": { "model": "aetheraddon:block/spud_merchant", "y": 270 },
+    "facing=east": { "model": "aetheraddon:block/spud_merchant", "y": 90 }
+  }
+}

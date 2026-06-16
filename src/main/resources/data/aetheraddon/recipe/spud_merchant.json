@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PGP",
+    "GEG",
+    "PGP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:oak_planks"
+    },
+    "G": {
+      "item": "aetheraddon:griptium"
+    },
+    "E": {
+      "item": "minecraft:emerald_block"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:spud_merchant",
+    "count": 1
+  }
+}

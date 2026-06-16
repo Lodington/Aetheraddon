@@ -22,6 +22,7 @@ public class ClientSetup {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModMenuTypes.SPUD_WALLET_MENU.get(), SpudWalletScreen::new);
         event.register(ModMenuTypes.SPUD_MINER_MENU.get(), SpudMinerScreen::new);
+        event.register(ModMenuTypes.SPUD_MERCHANT_MENU.get(), com.lodington.aetheraddon.merchant.SpudMerchantScreen::new);
     }
 
     @SubscribeEvent

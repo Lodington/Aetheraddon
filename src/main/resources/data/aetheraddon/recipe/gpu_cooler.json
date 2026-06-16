@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "PGP",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "item": "minecraft:packed_ice"
+    },
+    "G": {
+      "item": "aetheraddon:griptium"
+    }
+  },
+  "result": {
+    "id": "aetheraddon:gpu_cooler",
+    "count": 1
+  }
+}

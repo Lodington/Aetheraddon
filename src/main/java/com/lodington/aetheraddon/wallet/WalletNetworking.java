@@ -1,8 +1,12 @@
 package com.lodington.aetheraddon.wallet;
 
 import com.lodington.aetheraddon.AetherAddon;
+import com.lodington.aetheraddon.merchant.MerchantBuyPayload;
+import com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -16,6 +20,8 @@ public class WalletNetworking {
         var registrar = event.registrar(AetherAddon.MOD_ID);
         registrar.playToServer(WalletActionPayload.TYPE, WalletActionPayload.STREAM_CODEC,
                 WalletNetworking::handleAction);
+        registrar.playToServer(MerchantBuyPayload.TYPE, MerchantBuyPayload.STREAM_CODEC,
+                WalletNetworking::handleMerchantBuy);
     }
 
     private static void handleAction(WalletActionPayload payload, IPayloadContext context) {
@@ -38,6 +44,19 @@ public class WalletNetworking {
                         ItemStack withdrawn = menu.withdrawSpuddington(64);
                         if (!withdrawn.isEmpty()) player.getInventory().placeItemBackInInventory(withdrawn);
                     }
+                }
+            }
+        });
+    }
+
+    private static void handleMerchantBuy(MerchantBuyPayload payload, IPayloadContext context) {
+        context.enqueueWork(() -> {
+            Player player = context.player();
+            BlockPos pos = payload.pos();
+            if (player.level().isLoaded(pos)) {
+                BlockEntity be = player.level().getBlockEntity(pos);
+                if (be instanceof SpudMerchantBlockEntity merchant) {
+                    merchant.tryPurchase(payload.tradeIndex(), player);
                 }
             }
         });

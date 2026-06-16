@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aetheraddon:block/gpu_cooler" },
+    "facing=south": { "model": "aetheraddon:block/gpu_cooler", "y": 180 },
+    "facing=west": { "model": "aetheraddon:block/gpu_cooler", "y": 270 },
+    "facing=east": { "model": "aetheraddon:block/gpu_cooler", "y": 90 }
+  }
+}
