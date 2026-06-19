@@ -70,6 +70,12 @@ public class ModBlocks {
                     .sound(SoundType.WOOD)
                     .lightLevel(state -> 3)));
 
+    public static final DeferredBlock<Block> COOLANT_CONDENSER = registerBlock("coolant_condenser",
+            () -> new com.lodington.aetheraddon.miner.CoolantCondenserBlock(BlockBehaviour.Properties.of()
+                    .strength(3.0f, 6.0f)
+                    .sound(SoundType.COPPER)
+                    .lightLevel(state -> 2)));
+
     private static <T extends Block> DeferredBlock<T> registerBlockWithCustomItem(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         ModItems.ITEMS.register(name, () -> new SpuddingtonBlockItem(toReturn.get(), new Item.Properties()));

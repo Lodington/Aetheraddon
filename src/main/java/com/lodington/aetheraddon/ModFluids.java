@@ -56,11 +56,83 @@ public class ModFluids {
             () -> new BucketItem(MOLTEN_GRIP_SOURCE.get(),
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
+    // === Gripper Coolant ===
+
+    public static final Supplier<FluidType> GRIPPER_COOLANT_FLUID_TYPE = FLUID_TYPES.register("gripper_coolant",
+            () -> new FluidType(FluidType.Properties.create()
+                    .density(1100)
+                    .viscosity(1200)
+                    .temperature(280)
+                    .canConvertToSource(false)));
+
+    public static final Supplier<FlowingFluid> GRIPPER_COOLANT_SOURCE = FLUIDS.register("gripper_coolant",
+            () -> new BaseFlowingFluid.Source(ModFluids.gripperCoolantProperties()));
+    public static final Supplier<FlowingFluid> GRIPPER_COOLANT_FLOWING = FLUIDS.register("gripper_coolant_flowing",
+            () -> new BaseFlowingFluid.Flowing(ModFluids.gripperCoolantProperties()));
+
+    public static final DeferredBlock<LiquidBlock> GRIPPER_COOLANT_BLOCK = ModBlocks.BLOCKS.register("gripper_coolant_block",
+            () -> new LiquidBlock(GRIPPER_COOLANT_SOURCE.get(), BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PINK)
+                    .replaceable()
+                    .noCollission()
+                    .strength(100.0f)
+                    .pushReaction(PushReaction.DESTROY)
+                    .noLootTable()
+                    .liquid()));
+
+    public static final DeferredItem<Item> GRIPPER_COOLANT_BUCKET = ModItems.ITEMS.register("gripper_coolant_bucket",
+            () -> new BucketItem(GRIPPER_COOLANT_SOURCE.get(),
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
     private static BaseFlowingFluid.Properties moltenGripProperties() {
         return new BaseFlowingFluid.Properties(MOLTEN_GRIP_FLUID_TYPE, MOLTEN_GRIP_SOURCE, MOLTEN_GRIP_FLOWING)
                 .slopeFindDistance(2)
                 .levelDecreasePerBlock(2)
                 .block(MOLTEN_GRIP_BLOCK)
                 .bucket(MOLTEN_GRIP_BUCKET);
+    }
+
+    private static BaseFlowingFluid.Properties gripperCoolantProperties() {
+        return new BaseFlowingFluid.Properties(GRIPPER_COOLANT_FLUID_TYPE, GRIPPER_COOLANT_SOURCE, GRIPPER_COOLANT_FLOWING)
+                .slopeFindDistance(3)
+                .levelDecreasePerBlock(1)
+                .block(GRIPPER_COOLANT_BLOCK)
+                .bucket(GRIPPER_COOLANT_BUCKET);
+    }
+
+    // === Heated Coolant (hot output from GPU Coolers) ===
+
+    public static final Supplier<FluidType> HEATED_COOLANT_FLUID_TYPE = FLUID_TYPES.register("heated_coolant",
+            () -> new FluidType(FluidType.Properties.create()
+                    .density(1050)
+                    .viscosity(800)
+                    .temperature(600)
+                    .canConvertToSource(false)));
+
+    public static final Supplier<FlowingFluid> HEATED_COOLANT_SOURCE = FLUIDS.register("heated_coolant",
+            () -> new BaseFlowingFluid.Source(ModFluids.heatedCoolantProperties()));
+    public static final Supplier<FlowingFluid> HEATED_COOLANT_FLOWING = FLUIDS.register("heated_coolant_flowing",
+            () -> new BaseFlowingFluid.Flowing(ModFluids.heatedCoolantProperties()));
+
+    public static final DeferredBlock<LiquidBlock> HEATED_COOLANT_BLOCK = ModBlocks.BLOCKS.register("heated_coolant_block",
+            () -> new LiquidBlock(HEATED_COOLANT_SOURCE.get(), BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_RED)
+                    .replaceable()
+                    .noCollission()
+                    .strength(100.0f)
+                    .pushReaction(PushReaction.DESTROY)
+                    .noLootTable()
+                    .liquid()));
+
+    public static final DeferredItem<Item> HEATED_COOLANT_BUCKET = ModItems.ITEMS.register("heated_coolant_bucket",
+            () -> new BucketItem(HEATED_COOLANT_SOURCE.get(),
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+    private static BaseFlowingFluid.Properties heatedCoolantProperties() {
+        return new BaseFlowingFluid.Properties(HEATED_COOLANT_FLUID_TYPE, HEATED_COOLANT_SOURCE, HEATED_COOLANT_FLOWING)
+                .slopeFindDistance(2)
+                .levelDecreasePerBlock(2)
+                .block(HEATED_COOLANT_BLOCK)
+                .bucket(HEATED_COOLANT_BUCKET);
     }
 }

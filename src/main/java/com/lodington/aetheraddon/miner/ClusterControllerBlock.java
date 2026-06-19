@@ -1,6 +1,8 @@
 package com.lodington.aetheraddon.miner;
 
+import com.lodington.aetheraddon.ModBlockEntities;
 import com.lodington.aetheraddon.ModBlocks;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -8,8 +10,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -24,8 +30,14 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
-public class ClusterControllerBlock extends Block {
+public class ClusterControllerBlock extends BaseEntityBlock {
+    public static final MapCodec<ClusterControllerBlock> CODEC = simpleCodec(ClusterControllerBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
+    }
 
     public ClusterControllerBlock(Properties properties) {
         super(properties);
@@ -41,6 +53,24 @@ public class ClusterControllerBlock extends Block {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new ClusterControllerBlockEntity(pos, state);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (level.isClientSide()) return null;
+        return createTickerHelper(type, ModBlockEntities.CLUSTER_CONTROLLER.get(), ClusterControllerBlockEntity::serverTick);
+    }
+
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Override
@@ -80,12 +110,25 @@ public class ClusterControllerBlock extends Block {
                 }
             }
 
+            // Get controller's own energy status
+            BlockEntity controllerBE = level.getBlockEntity(pos);
+            String controllerStatus = "§cUnpowered";
+            int controllerEnergy = 0;
+            int controllerMaxEnergy = 0;
+            if (controllerBE instanceof ClusterControllerBlockEntity controller) {
+                controllerEnergy = controller.getEnergyStored();
+                controllerMaxEnergy = controller.getMaxEnergy();
+                controllerStatus = controller.isPowered() ? "§aPowered" : "§cNo Power";
+            }
+
             player.displayClientMessage(Component.literal(
                     "§6══ CLUSTER CONTROLLER ══\n" +
+                    "§7Status: " + controllerStatus + "\n" +
+                    "§7Controller Energy: §e" + controllerEnergy / 1000 + "k/" + controllerMaxEnergy / 1000 + "k FE §7(" + ClusterControllerBlockEntity.ENERGY_PER_TICK + " FE/t)\n" +
                     "§7Miners Connected: §f" + miners.size() + "\n" +
                     "§7Total GPUs: §f" + totalGPUs + "\n" +
-                    "§7Total Energy: §e" + totalEnergy / 1000 + "k/" + totalMaxEnergy / 1000 + "k FE\n" +
-                    "§7Total Draw: §c" + totalConsumption + " FE/t\n" +
+                    "§7Miner Energy: §e" + totalEnergy / 1000 + "k/" + totalMaxEnergy / 1000 + "k FE\n" +
+                    "§7Miner Draw: §c" + totalConsumption + " FE/t\n" +
                     "§7Combined Rate: §a" + String.format("%.1f", spudsPerMin) + " spuds/min\n" +
                     "§7Total Mined (all): §f" + totalMined
             ), false);

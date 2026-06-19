@@ -38,7 +38,10 @@ public class ModCreativeTabs {
                         output.accept(ModBlocks.SPUD_NETWORK_CABLE.get());
                         output.accept(ModBlocks.CLUSTER_CONTROLLER.get());
                         output.accept(ModBlocks.SPUD_MERCHANT.get());
+                        output.accept(ModBlocks.COOLANT_CONDENSER.get());
                         output.accept(ModItems.SPUD_GPU.get());
+                        output.accept(ModFluids.GRIPPER_COOLANT_BUCKET.get());
+                        output.accept(ModFluids.HEATED_COOLANT_BUCKET.get());
                     })
                     .build());
 }

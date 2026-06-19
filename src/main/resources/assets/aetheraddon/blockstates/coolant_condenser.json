@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aetheraddon:block/coolant_condenser" },
+    "facing=south": { "model": "aetheraddon:block/coolant_condenser", "y": 180 },
+    "facing=west": { "model": "aetheraddon:block/coolant_condenser", "y": 270 },
+    "facing=east": { "model": "aetheraddon:block/coolant_condenser", "y": 90 }
+  }
+}

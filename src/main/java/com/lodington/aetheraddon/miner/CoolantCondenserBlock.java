@@ -1,7 +1,6 @@
 package com.lodington.aetheraddon.miner;
 
 import com.lodington.aetheraddon.ModBlockEntities;
-import com.lodington.aetheraddon.ModBlocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,8 +23,8 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-public class GpuCoolerBlock extends BaseEntityBlock {
-    public static final MapCodec<GpuCoolerBlock> CODEC = simpleCodec(GpuCoolerBlock::new);
+public class CoolantCondenserBlock extends BaseEntityBlock {
+    public static final MapCodec<CoolantCondenserBlock> CODEC = simpleCodec(CoolantCondenserBlock::new);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     @Override
@@ -33,7 +32,7 @@ public class GpuCoolerBlock extends BaseEntityBlock {
         return CODEC;
     }
 
-    public GpuCoolerBlock(Properties properties) {
+    public CoolantCondenserBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
@@ -52,14 +51,14 @@ public class GpuCoolerBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new GpuCoolerBlockEntity(pos, state);
+        return new CoolantCondenserBlockEntity(pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (level.isClientSide()) return null;
-        return createTickerHelper(type, ModBlockEntities.GPU_COOLER.get(), GpuCoolerBlockEntity::serverTick);
+        return createTickerHelper(type, ModBlockEntities.COOLANT_CONDENSER.get(), CoolantCondenserBlockEntity::serverTick);
     }
 
     @Override
@@ -71,55 +70,24 @@ public class GpuCoolerBlock extends BaseEntityBlock {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide()) {
             BlockEntity be = level.getBlockEntity(pos);
-            if (be instanceof GpuCoolerBlockEntity coolerEntity) {
-                boolean hasPower = coolerEntity.getEnergyStored() >= GpuCoolerBlockEntity.ENERGY_PER_TICK;
-                boolean hasCoolant = coolerEntity.getColdCoolantAmount() >= GpuCoolerBlockEntity.COOLANT_TRANSFER_PER_TICK;
-                boolean hotFull = coolerEntity.getHotCoolantAmount() >= coolerEntity.getTankCapacity();
-
-                boolean foundMiner = false;
-                for (Direction dir : Direction.values()) {
-                    BlockPos adjacent = pos.relative(dir);
-                    if (level.getBlockState(adjacent).is(ModBlocks.SPUD_MINER.get())) {
-                        foundMiner = true;
-                        break;
-                    }
-                }
-
-                String statusLine;
-                if (!hasPower) {
-                    statusLine = "§cNo Power!";
-                } else if (!hasCoolant) {
-                    statusLine = "§cNo Coolant!";
-                } else if (hotFull) {
-                    statusLine = "§cHot Tank Full! Pump it out.";
-                } else if (!foundMiner) {
-                    statusLine = "§ePowered §7but no adjacent Spud Miner";
+            if (be instanceof CoolantCondenserBlockEntity condenser) {
+                String status;
+                if (condenser.getEnergyStored() < CoolantCondenserBlockEntity.ENERGY_PER_TICK) {
+                    status = "§cNo Power!";
+                } else if (condenser.isProcessing()) {
+                    status = "§aCondensing";
                 } else {
-                    statusLine = "§aActive §7(20% power reduction)";
+                    status = "§7Idle";
                 }
-
                 player.displayClientMessage(Component.literal(
-                        "§b══ GPU COOLER ══\n" +
-                        "§7Status: " + statusLine + "\n" +
-                        "§7Cold In: §d" + coolerEntity.getColdCoolantAmount() + "/" + coolerEntity.getTankCapacity() + " mB\n" +
-                        "§7Hot Out: §c" + coolerEntity.getHotCoolantAmount() + "/" + coolerEntity.getTankCapacity() + " mB"
+                        "§b══ COOLANT CONDENSER ══\n" +
+                        "§7Status: " + status + "\n" +
+                        "§7Energy: §e" + condenser.getEnergyStored() / 1000 + "k/" + condenser.getMaxEnergy() / 1000 + "k FE §7(" + CoolantCondenserBlockEntity.ENERGY_PER_TICK + " FE/t)\n" +
+                        "§7Hot In: §c" + condenser.getInputAmount() + "/" + condenser.getTankCapacity() + " mB\n" +
+                        "§7Cold Out: §d" + condenser.getOutputAmount() + "/" + condenser.getTankCapacity() + " mB"
                 ), false);
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide());
-    }
-
-    public static int countCoolersAdjacent(Level level, BlockPos minerPos) {
-        int count = 0;
-        for (Direction dir : Direction.values()) {
-            BlockPos adjacent = minerPos.relative(dir);
-            if (level.getBlockState(adjacent).is(ModBlocks.GPU_COOLER.get())) {
-                BlockEntity be = level.getBlockEntity(adjacent);
-                if (be instanceof GpuCoolerBlockEntity cooler && cooler.isPowered()) {
-                    count++;
-                }
-            }
-        }
-        return Math.min(count, 3);
     }
 }

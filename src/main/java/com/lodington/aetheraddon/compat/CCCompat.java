@@ -32,6 +32,16 @@ public class CCCompat {
                     ModBlockEntities.SPUD_MERCHANT.get(),
                     (blockEntity, direction) -> new com.lodington.aetheraddon.merchant.SpudMerchantPeripheral(blockEntity)
             );
+            event.registerBlockEntity(
+                    peripheralCap,
+                    ModBlockEntities.SPUD_MINER.get(),
+                    (blockEntity, direction) -> new com.lodington.aetheraddon.miner.SpudMinerPeripheral(blockEntity)
+            );
+            event.registerBlockEntity(
+                    peripheralCap,
+                    ModBlockEntities.COOLANT_CONDENSER.get(),
+                    (blockEntity, direction) -> new com.lodington.aetheraddon.miner.CoolantCondenserPeripheral(blockEntity)
+            );
         } catch (Exception ignored) {
             // CC:Tweaked not available or API mismatch
         }

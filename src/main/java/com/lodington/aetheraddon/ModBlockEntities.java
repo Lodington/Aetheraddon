@@ -18,4 +18,13 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity>> SPUD_MERCHANT = BLOCK_ENTITIES.register("spud_merchant",
             () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity::new, ModBlocks.SPUD_MERCHANT.get()).build(null));
+
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.ClusterControllerBlockEntity>> CLUSTER_CONTROLLER = BLOCK_ENTITIES.register("cluster_controller",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.ClusterControllerBlockEntity::new, ModBlocks.CLUSTER_CONTROLLER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.GpuCoolerBlockEntity>> GPU_COOLER = BLOCK_ENTITIES.register("gpu_cooler",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.GpuCoolerBlockEntity::new, ModBlocks.GPU_COOLER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.CoolantCondenserBlockEntity>> COOLANT_CONDENSER = BLOCK_ENTITIES.register("coolant_condenser",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.CoolantCondenserBlockEntity::new, ModBlocks.COOLANT_CONDENSER.get()).build(null));
 }

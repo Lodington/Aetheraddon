@@ -43,5 +43,41 @@ public class ClientSetup {
                 return 0xFFFFFFFF; // No tint, use texture as-is
             }
         }, ModFluids.MOLTEN_GRIP_FLUID_TYPE.get());
+
+        // Gripper Coolant - pink tinted water
+        event.registerFluidType(new net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions() {
+            @Override
+            public net.minecraft.resources.ResourceLocation getStillTexture() {
+                return net.minecraft.resources.ResourceLocation.withDefaultNamespace("block/water_still");
+            }
+
+            @Override
+            public net.minecraft.resources.ResourceLocation getFlowingTexture() {
+                return net.minecraft.resources.ResourceLocation.withDefaultNamespace("block/water_flow");
+            }
+
+            @Override
+            public int getTintColor() {
+                return 0xCCFF69B4; // Pink tint
+            }
+        }, ModFluids.GRIPPER_COOLANT_FLUID_TYPE.get());
+
+        // Heated Coolant - red/orange tinted water (hot!)
+        event.registerFluidType(new net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions() {
+            @Override
+            public net.minecraft.resources.ResourceLocation getStillTexture() {
+                return net.minecraft.resources.ResourceLocation.withDefaultNamespace("block/water_still");
+            }
+
+            @Override
+            public net.minecraft.resources.ResourceLocation getFlowingTexture() {
+                return net.minecraft.resources.ResourceLocation.withDefaultNamespace("block/water_flow");
+            }
+
+            @Override
+            public int getTintColor() {
+                return 0xCCFF4500; // Red-orange tint
+            }
+        }, ModFluids.HEATED_COOLANT_FLUID_TYPE.get());
     }
 }
