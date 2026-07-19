@@ -43,6 +43,32 @@ public class SpudVaultPeripheral implements IPeripheral {
         return vault.getSpud() + vault.getSpudding() + vault.getSpuddington();
     }
 
+    @LuaFunction
+    public final void addSpud(int amount) {
+        vault.setSpud(vault.getSpud() + amount);
+    }
+
+    @LuaFunction
+    public final void addSpudding(int amount) {
+        vault.setSpudding(vault.getSpudding() + amount);
+    }
+
+    @LuaFunction
+    public final void addSpuddington(int amount) {
+        vault.setSpuddington(vault.getSpuddington() + amount);
+    }
+
+    @LuaFunction
+    public final int depositFrom(IComputerAccess computer, String sourceName) throws dan200.computercraft.api.lua.LuaException {
+        // Pull all spud items from a source inventory into the vault
+        // Returns total items deposited
+        var source = computer.getAvailablePeripheral(sourceName);
+        if (source == null) throw new dan200.computercraft.api.lua.LuaException("Peripheral not found: " + sourceName);
+        // We can't directly access the inventory from here in CC's API
+        // Instead, the Lua script should handle counting and call addSpud/etc
+        return 0;
+    }
+
     @Override
     public void attach(IComputerAccess computer) {
         computers.add(computer);

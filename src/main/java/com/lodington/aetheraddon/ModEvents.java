@@ -63,5 +63,11 @@ public class ModEvents {
                 ModBlockEntities.COOLANT_CONDENSER.get(),
                 (blockEntity, direction) -> blockEntity.getEnergyStorage()
         );
+        // Toe Jam Fermenter: item handler for hopper/pipe interaction
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.TOE_JAM_FERMENTER.get(),
+                (blockEntity, direction) -> blockEntity.getItemHandler()
+        );
     }
 }

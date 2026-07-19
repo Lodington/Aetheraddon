@@ -32,6 +32,14 @@ public class CCCompat {
                     ModBlockEntities.SPUD_MERCHANT.get(),
                     (blockEntity, direction) -> new com.lodington.aetheraddon.merchant.SpudMerchantPeripheral(blockEntity)
             );
+            // Autocrafter: expose the custom peripheral on all faces.
+            // The crafter drives connected inventories directly, so no need
+            // to reserve faces for a generic inventory peripheral.
+            event.registerBlockEntity(
+                    peripheralCap,
+                    ModBlockEntities.SPUD_AUTOCRAFTER.get(),
+                    (blockEntity, direction) -> new com.lodington.aetheraddon.autocraft.SpudAutocrafterPeripheral(blockEntity)
+            );
             event.registerBlockEntity(
                     peripheralCap,
                     ModBlockEntities.SPUD_MINER.get(),

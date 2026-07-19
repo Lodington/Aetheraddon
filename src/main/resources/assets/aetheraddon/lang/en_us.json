@@ -19,6 +19,8 @@
   "block.aetheraddon.cluster_controller.tooltip": "Manages multiple miners via cables. Shows combined stats.",
   "block.aetheraddon.spud_merchant": "Spud Merchant",
   "block.aetheraddon.spud_merchant.tooltip": "A shop block. Configure trades via ComputerCraft. Buy with your wallet.",
+  "block.aetheraddon.spud_autocrafter": "Spud Autocrafter",
+  "block.aetheraddon.spud_autocrafter.tooltip": "CC peripheral with full recipe access. Craft anything from connected storage.",
   "item.aetheraddon.spud_gpu": "Spud GPU",
   "item.aetheraddon.spud_gpu.tooltip": "Insert into a Spud Miner to increase hash rate.",
 
@@ -47,6 +49,8 @@
   "block.aetheraddon.heated_coolant_block": "Heated Coolant",
   "block.aetheraddon.coolant_condenser": "Coolant Condenser",
   "block.aetheraddon.coolant_condenser.tooltip": "Slowly cools heated coolant back into Gripper Coolant. Pipe in hot, pipe out cold.",
+  "block.aetheraddon.toe_jam_fermenter": "Toe Jam Fermenter",
+  "block.aetheraddon.toe_jam_fermenter.tooltip": "Feed it Raw Spuds. Ferments them into Toe Jam over time.",
   "item.aetheraddon.griptium": "Griptium",
   "item.aetheraddon.griptium.tooltip": "Forged through feet, fire, and forbidden magic.",
   "item.aetheraddon.griptium_pickaxe": "Griptium Pickaxe",

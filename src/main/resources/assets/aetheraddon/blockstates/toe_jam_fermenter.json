@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aetheraddon:block/toe_jam_fermenter" },
+    "facing=south": { "model": "aetheraddon:block/toe_jam_fermenter", "y": 180 },
+    "facing=west": { "model": "aetheraddon:block/toe_jam_fermenter", "y": 270 },
+    "facing=east": { "model": "aetheraddon:block/toe_jam_fermenter", "y": 90 }
+  }
+}

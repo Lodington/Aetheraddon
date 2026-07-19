@@ -19,6 +19,9 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity>> SPUD_MERCHANT = BLOCK_ENTITIES.register("spud_merchant",
             () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.merchant.SpudMerchantBlockEntity::new, ModBlocks.SPUD_MERCHANT.get()).build(null));
 
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.autocraft.SpudAutocrafterBlockEntity>> SPUD_AUTOCRAFTER = BLOCK_ENTITIES.register("spud_autocrafter",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.autocraft.SpudAutocrafterBlockEntity::new, ModBlocks.SPUD_AUTOCRAFTER.get()).build(null));
+
     public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.ClusterControllerBlockEntity>> CLUSTER_CONTROLLER = BLOCK_ENTITIES.register("cluster_controller",
             () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.ClusterControllerBlockEntity::new, ModBlocks.CLUSTER_CONTROLLER.get()).build(null));
 
@@ -27,4 +30,7 @@ public class ModBlockEntities {
 
     public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.CoolantCondenserBlockEntity>> COOLANT_CONDENSER = BLOCK_ENTITIES.register("coolant_condenser",
             () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.CoolantCondenserBlockEntity::new, ModBlocks.COOLANT_CONDENSER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<com.lodington.aetheraddon.miner.ToeJamFermenterBlockEntity>> TOE_JAM_FERMENTER = BLOCK_ENTITIES.register("toe_jam_fermenter",
+            () -> BlockEntityType.Builder.of(com.lodington.aetheraddon.miner.ToeJamFermenterBlockEntity::new, ModBlocks.TOE_JAM_FERMENTER.get()).build(null));
 }
